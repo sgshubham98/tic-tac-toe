@@ -4,8 +4,8 @@ from tkinter import messagebox
 from random import randint
 
 activePlayer = 1
-player1 = [] 
-player2 = []
+shakti = [] 
+rishabh = []
 
 root = Tk()
 root.title("Tic Tac Toe : Player 1")
@@ -48,23 +48,23 @@ button9.config(command = lambda: ButtonClick(9))
 
 def ButtonClick(id):
    global activePlayer
-   global player1
-   global player2
+   global shakti
+   global rishabh
 
    if(activePlayer == 1):
       setLayout(id, "X")
-      player1.append(id)
+      shakti.append(id)
       root.title("Tic Tac Toe : Player 2")
       activePlayer = 2
-      print("P1:{}".format(player1))
+      print("P1:{}".format(shakti))
       autoPlay()
 
    elif(activePlayer == 2):
       setLayout(id, "O")
-      player2.append(id)
+      rishabh.append(id)
       root.title("Tic Tac Toe : Player 1")
       activePlayer = 1
-      print("P2:{}".format(player2))
+      print("P2:{}".format(rishabh))
 
    checkWinner()
 
@@ -108,37 +108,37 @@ def setLayout(id, PlayerSymbol):
 
 def checkWinner():
    winner = -1
-   if((1 in player1) and (2 in player1) and (3 in player1)):
+   if((1 in shakti) and (2 in shakti) and (3 in shakti)):
       winner=1
-   if((1 in player2) and (2 in player2) and (3 in player2)):
+   if((1 in rishabh) and (2 in rishabh) and (3 in rishabh)):
       winner=2
-   if((4 in player1) and (5 in player1) and (6 in player1)):
+   if((4 in shakti) and (5 in shakti) and (6 in shakti)):
       winner=1
-   if((4 in player2) and (5 in player2) and (6 in player2)):
+   if((4 in rishabh) and (5 in rishabh) and (6 in rishabh)):
       winner=2
-   if((7 in player1) and (8 in player1) and (9 in player1)):
+   if((7 in shakti) and (8 in shakti) and (9 in shakti)):
       winner=1
-   if((7 in player2) and (8 in player2) and (9 in player2)):
+   if((7 in rishabh) and (8 in rishabh) and (9 in rishabh)):
       winner=2    
-   if((1 in player1) and (4 in player1) and (7 in player1)):
+   if((1 in shakti) and (4 in shakti) and (7 in shakti)):
       winner=1
-   if((1 in player2) and (4 in player2) and (7 in player2)):
+   if((1 in rishabh) and (4 in rishabh) and (7 in rishabh)):
       winner=2
-   if((2 in player1) and (5 in player1) and (8 in player1)):
+   if((2 in shakti) and (5 in shakti) and (8 in shakti)):
       winner=1
-   if((2 in player2) and (5 in player2) and (8 in player2)):
+   if((2 in rishabh) and (5 in rishabh) and (8 in rishabh)):
       winner=2
-   if((3 in player1) and (6 in player1) and (9 in player1)):
+   if((3 in shakti) and (6 in shakti) and (9 in shakti)):
       winner=1
-   if((3 in player2) and (6 in player2) and (9 in player2)):
+   if((3 in rishabh) and (6 in rishabh) and (9 in rishabh)):
       winner=2
-   if((1 in player1) and (5 in player1) and (9 in player1)):
+   if((1 in shakti) and (5 in shakti) and (9 in shakti)):
    	  winner=1
-   if((1 in player2) and (5 in player2) and (9 in player2)):
+   if((1 in rishabh) and (5 in rishabh) and (9 in rishabh)):
       winner=2
-   if((3 in player1) and (5 in player1) and (7 in player1)):
+   if((3 in shakti) and (5 in shakti) and (7 in shakti)):
       winner=1
-   if((3 in player2) and (5 in player2) and (7 in player2)):
+   if((3 in rishabh) and (5 in rishabh) and (7 in rishabh)):
       winner=2   
 
    if winner==1:
@@ -150,11 +150,11 @@ def checkWinner():
       exit()
 
 def autoPlay():
-	global player1
-	global player2
+	global shakti
+	global rishabh
 	emptyCells = []
 	for  cell in range(9):
-		if(not((cell+1 in player1) or (cell+1 in player2))):
+		if(not((cell+1 in shakti) or (cell+1 in rishabh))):
 			emptyCells.append(cell+1)
 	randIndex = randint(0, len(emptyCells)-1)
 	ButtonClick(emptyCells[randIndex])
